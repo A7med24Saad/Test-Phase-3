@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build":  "node --max_old_space_size=2048 ./node_modules/@angular/cli/bin/ng build",
+    "build":  "node --max_old_space_size=2048 ./node_modules/@angular/cli/bin/ng build --configuration production --optimization=false",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:project": "node dist/project/server/server.mjs"
@@ -44,5 +44,16 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
     "typescript": "~5.3.2"
-  }
+  },
+  "configurations": {
+    "production": {
+      "optimization": false,
+      "sourceMap": false,
+      "namedChunks": false,
+      "aot": true,
+      "extractLicenses": false,
+      "vendorChunk": false,
+      "buildOptimizer": false
+    }
+}
 }
